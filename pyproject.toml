@@ -1,0 +1,23 @@
+[project]
+name = "srs2sdd"
+version = "0.1.0"
+description = "srs2sdd using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.100.1,<1.0.0"
+]
+
+[project.scripts]
+srs2sdd = "srs2sdd.main:run"
+run_crew = "srs2sdd.main:run"
+train = "srs2sdd.main:train"
+replay = "srs2sdd.main:replay"
+test = "srs2sdd.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

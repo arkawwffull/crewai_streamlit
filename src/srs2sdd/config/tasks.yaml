@@ -1,0 +1,104 @@
+extract_srs:
+  description: >
+    Analyze the SRS document and extract structured information, categorizing key sections like Introduction, System Overview,
+    Functional and Non-Functional Requirements, API Design, Security & Compliance, and Data Encryption Strategy.
+  expected_output: >
+    A structured representation (JSON, dictionary, or tabular format) of the extracted SRS content, mapped to relevant SDD sections.
+    This extraction must explicitly include **Purpose, Scope, Assumptions, Constraints, Stakeholders**, **High-level Architecture**, **Technology Stack**,
+    **Multi-tenant SaaS Architecture**, **Performance & Scalability**, **HIPAA & GDPR Compliance**, **Security Best Practices**, **ER Schema**, **API Endpoints**,
+    **Wireframe Descriptions**, **Interface Validation Rules**, **Threat Modeling**, **Risk Assessment**, **RBAC**, **Data Encryption Strategy**, and **Glossary**.
+  agent: srs_extractor
+
+define_sdd_structure:
+  description: >
+    Design a structured SDD template incorporating sections such as Introduction, System Overview, Non-Functional Requirements,
+    API Design, Wireframe Designs, Interface Validation Rules, Security & Compliance, Data Encryption Strategy, and Appendices.
+  expected_output: >
+    A well-defined SDD template with placeholders for **Purpose, Scope, Assumptions, Constraints, Stakeholders**, **High-level Architecture (UML, DFD)**,
+    **Technology Stack**, **Multi-tenant SaaS Architecture**, **Performance & Scalability**, **HIPAA & GDPR Compliance**, **Security Best Practices**,
+    **ER Schema with MySQL Example**, **API Endpoints & Specifications**, **Industry-Specific Integration Standards**, **Security & Authentication**,
+    **Wireframe Designs**, **Interface Validation Rules**, **Threat Modeling**, **Risk Assessment**, **RBAC**, **Data Encryption Strategy**, and **Appendices**.
+  agent: sdd_structure
+
+generate_er_schema:
+  description: >
+    Analyze the Data Model section in the Functional Requirements of the SRS document and generate a structured ER schema with MySQL examples.
+    The ER Schema must be placed under the **System Architecture** section in the final SDD.
+  expected_output: >
+    A structured ER schema in text or JSON format representing all entities and relationships extracted from the Data Model section, with MySQL examples.
+  agent: er_schema_generator
+
+generate_sdd_content:
+  description: >
+    Populate the SDD template by mapping extracted SRS content to relevant sections, ensuring technical accuracy, coherence, and completeness.
+    Ensure the following are included:
+    - **Introduction**: Purpose, Scope, Assumptions, Constraints, Stakeholders.
+    - **System Overview**: High-level Architecture (UML, DFD), Technology Stack, Multi-tenant SaaS Architecture.
+    - **Non-Functional Requirements**: Performance, Scalability, HIPAA & GDPR Compliance, Security Best Practices.
+    - **ER Schema**: MySQL examples.
+    - **API Design**: Endpoints, Industry-Specific Integration Standards, Security & Authentication.
+    - **Wireframe Designs**: Descriptions of wireframes for functional requirements.
+    - **Interface Validation Rules**: Validation rules and interaction guidelines for functional requirements.
+    - **Security & Compliance**: Threat Modeling, Risk Assessment, RBAC, Data Encryption Strategy.
+    - **Data Encryption Strategy**: Mapping of functional requirements to system components.
+    - **Appendices**: Glossary, Compliance Standards.
+  expected_output: >
+    A draft SDD document where all sections, including **Introduction**, **System Overview**, **Non-Functional Requirements**, **ER Schema**, **API Design**,
+    **Wireframe Designs**, **Interface Validation Rules**, **Security & Compliance**, **Data Encryption Strategy**, and **Appendices**, are fully populated.
+  agent: content_generator
+
+generate_wireframe_descriptions:
+  description: >
+    Analyze the functional requirements from the SRS document and create detailed descriptions of wireframes for each feature.
+  expected_output: >
+    A detailed description of wireframes for each functional requirement, including Patient Registration, Appointment Management, Prescription Management, etc.
+    These descriptions will be included under the **Wireframe Designs** section of the SDD.
+  agent: wireframe_designer
+
+define_interface_validation_rules:
+  description: >
+    Define validation rules and user interface behavior for each functional requirement.
+  expected_output: >
+    A detailed description of the interface for each functional requirement, including validation rules, error messages, and user interaction guidelines.
+    These descriptions will be included under the **Interface Validation Rules** section of the SDD.
+  agent: interface_validator
+
+validate_sdd:
+  description: >
+    Validate the SDD content for adherence to compliance standards such as HIPAA, GDPR, OWASP, and industry best practices.
+    Ensure the following sections are **fully included and correct**:
+    - **Introduction**: Purpose, Scope, Assumptions, Constraints, Stakeholders.
+    - **System Overview**: High-level Architecture, Technology Stack, Multi-tenant SaaS Architecture.
+    - **Non-Functional Requirements**: Performance, Scalability, HIPAA & GDPR Compliance, Security Best Practices.
+    - **ER Schema**: MySQL examples.
+    - **API Design**: Endpoints, Industry-Specific Integration Standards, Security & Authentication.
+    - **Wireframe Designs**: Descriptions of wireframes.
+    - **Interface Validation Rules**: Validation rules and interaction guidelines.
+    - **Security & Compliance**: Threat Modeling, Risk Assessment, RBAC, Data Encryption Strategy.
+    - **Data Encryption Strategy**: Mapping of functional requirements to system components.
+    - **Appendices**: Glossary, Compliance Standards.
+  expected_output: >
+    A compliance-validated SDD with necessary security considerations, API security details, wireframe designs, validation rules, and regulatory documentation.
+  agent: validation_compliance
+
+format_export_sdd:
+  description: >
+    Format the finalized SDD document and export it into structured formats (PDF, DOCX, Markdown) while ensuring readability, styling consistency, and professional presentation.
+    Ensure:
+    - **Introduction**: Properly formatted Purpose, Scope, Assumptions, Constraints, Stakeholders.
+    - **System Overview**: Clear diagrams for High-level Architecture (UML, DFD), Technology Stack, Multi-tenant SaaS Architecture.
+    - **Non-Functional Requirements**: Detailed Performance, Scalability, HIPAA & GDPR Compliance, Security Best Practices.
+    - **ER Schema**: Well-documented MySQL examples.
+    - **API Design**: Clear Endpoints, Industry-Specific Integration Standards, Security & Authentication.
+    - **Wireframe Designs**: Properly formatted wireframe descriptions.
+    - **Interface Validation Rules**: Properly formatted validation rules and interaction guidelines.
+    - **Security & Compliance**: Threat Modeling, Risk Assessment, RBAC, Data Encryption Strategy.
+    - **Data Encryption Strategy**: Properly formatted mapping of functional requirements to system components.
+    - **Appendices**: Glossary, Compliance Standards.
+  expected_output: >
+    A fully formatted and export-ready SDD document, ensuring all sections are complete and saved as "sdd1.md".
+  agent: final_formatter
+
+
+
+

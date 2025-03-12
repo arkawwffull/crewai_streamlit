@@ -1,0 +1,167 @@
+Healthcare System - Software Requirements Specification
+
+1. Introduction
+In this age, the focus is on digitalizing user journeys to save money and time and bring convenience to consumers. Consumer interactions which couldn't be imagined to be digitalized in the past have been made possible through technology. One such digitalization, which has been popular with consumers, is retail grocery shopping. Such advancements have made life easy for everyone, especially for people with physical conditions due to diseases or age. Yet, it has been observed that the digitalization of patients needing healthcare is limited in terms of outreach and services.
+Hence, this app has been designed to improve the reach of small to medium size healthcare providers to patients. Often, owing to high expenses such healthcare providers shy away from establishing a digital journey for their clients. Hence, they have a limited customer base and a high churn ratio. This app, hosted on a multi-tenant cloud environment, will help these healthcare providers improve their market share through outreach and customer satisfaction.
+This app has simple yet high user experience journeys designed for patients. With minimal clicks and assistance, patients can navigate through this app with least hindrance. They can manage their health consultations from past and present at one site with features such as return visit scheduling, rescheduling, digital prescriptions and teleconsultations.
+Initially, this app would provide out-patient services such as appointment booking and management. However, the framework will allow faster addition of newer services and more stakeholder journeys.
+Each healthcare provider would have their own app with their data separate from other providers in a multi-tenant SAAS environment.
+The plan is to cover 80% of the SME in the healthcare provider market of any metropolitan city.
+
+2. Purpose
+The primary purpose of this application is to extend the reach of small to medium-sized healthcare providers to a broader patient base by offering a cost-effective digital solution. This aims to enhance patient convenience through features like online appointment management, digital prescriptions, and teleconsultations, ultimately improving customer satisfaction and market share for healthcare providers. The application will initially focus on outpatient services, with a scalable framework to incorporate additional services and stakeholders in the future, and will also include AI-driven diagnosis.
+
+3. Scope
+This project encompasses the development of a multi-tenant SaaS application designed to facilitate patient registration, medical profile creation, appointment booking (both in-person and virtual), and online payment processing. Healthcare providers will be able to manage service listings, onboard and manage practitioners, manage appointments, upload prescriptions, and generate reports. Doctors can view appointments, update medical histories, and create prescriptions. Patient data will be fetched, inserted, and updated within the client's EHR system without being stored within the application's cloud platform, ensuring data privacy and regulatory compliance (HIPAA, GDPR). Patients will have access to an AI-driven symptom checker to assist in preliminary diagnosis. The application focuses on outpatient services and excludes certain integrations and functionalities as detailed in the "Out of Scope" section.
+
+
+4. In Scope
+Initially, this app will let consumers register and create their medical profile. They can then book in-patient or virtual appointments and pay for it online through multiple channels. They can upload their past medical history, download prescriptions, book follow-up visits to a doctor amongst features described in this document.
+Healthcare providers can manage their services list, onboard healthcare practitioners, remove practitioners, manage appointments, and upload prescriptions and medical history for patients. They will have the option to generate management reports of their financial, operational or customer data.
+Doctors can view their appointments, update patient medical history, change appointment status, create patient prescription and generate a printout of the prescription for the patient.
+The app will be hosted on a multi-tenant SAAS platform, where the data of each service provider will be kept secure and distinct from other providers. Patient medical records EHR will be maintained in the client facility. This app will fetch, insert and update EHR data but, would not store the data in the app's multi-tenant cloud platform.
+All authentication processes would comply with relevant data protection laws (e.g., HIPAA, GDPR) to ensure patient data remains secure and private
+The process of registration of a patient is fully automated. The registration of a health care staff will be created by a system admin. Login for a healthcare professional or doctor would be created by a health care staff while onboarding individual doctors.
+Only a patient can create an appointment, but is not allowed to delete an appointment. They can reschedule an appointment before 24hrs. Doctors can modify appointments but cannot delete it. Appointments can only be deleted by healthcare staff.
+Patients can only view prescriptions, whereas doctors and healthcare staffs can create and modify it.
+Management reports can be generated by healthcare staffs only.
+Patients with be given an option of an AI driven symptom checker. This chat bot will analyse patient's symptoms and, suggest possible causes and the type of doctor to consult.
+
+
+5. Out of Scope
+The following functionalities and integrations are explicitly excluded from the scope of this application:
+•	Third-party integrations: Integration with external third-party services, including but not limited to ambulance operators, pharmacies, medical tourism agencies, external billing systems, and specialized diagnostic equipment interfaces, are not included in the initial release.
+•	Inpatient services: Support for the inpatient department (IPD) journey of patients is out of scope. This includes functionalities related to hospital admissions, bed management, in-hospital diagnostics, and inpatient-specific billing.
+•	Aggregator model: The application will not function as an aggregator platform. Each patient will be exclusively linked to a single healthcare provider's app within the multi-tenant SaaS environment.
+•	Claims processing: Automated insurance claims processing, direct integration with insurance providers, and management of insurance eligibility are excluded.
+•	Medical device integration: Direct integration with wearable medical devices or other patient-monitoring equipment is not included.
+•	Payment gateway outside of scope: Payment gateways are limited to channels. Any specific payment gateway not listed is out of scope.
+
+
+6. Assumptions
+This project assumes that healthcare providers will allow interfacing this app with their EHR systems.
+
+
+7. Dependencies
+•	EHR Systems: The application depends on the availability and proper functioning of healthcare providers' EHR systems for data exchange.
+•	Healthcare APIs: The application relies on standard healthcare APIs (HL7, FHIR, RESTful APIs) for interoperability.
+•	Network Connectivity: Reliable network connectivity is required for seamless data transfer and application functionality.
+
+
+8. References
+•	HIPAA (Health Insurance Portability and Accountability Act)
+•	GDPR (General Data Protection Regulation)
+•	HL7 FHIR (Health Level Seven Fast Healthcare Interoperability Resources)
+•	NIST Cybersecurity Framework
+
+
+9. Overview
+The application aims to bridge the gap in healthcare digitalization by providing a user-friendly and cost-effective solution for SME healthcare providers. It will enable patients to manage appointments, access medical profiles, and utilize AI-driven symptom checking. The application is designed as a multi-tenant SaaS platform, ensuring data security and compliance with regulations like HIPAA and GDPR. Key features include patient registration, appointment management, EHR integration (fetching, inserting, and updating data), and report generation. Initially focusing on outpatient services, the application is built to be scalable for future expansion and integration of additional healthcare services.
+
+
+10. Functional Requirements:
+•	Patient Registration:
+o	Allow patients to register and create medical profiles.
+o	Automate the registration process.
+•	Appointment Management:
+o	Enable patients to book in-person or virtual appointments.
+o	Allow patients to reschedule appointments (with a cutoff, e.g., 24 hours prior).
+o	Enable healthcare staff to delete appointments.
+o	Enable doctors to modify appointments.
+o	Allow patients to book follow-up visits.
+o	Enable doctors to view their appointments.
+o	Function to update appointment status.
+•	Medical Profile Management:
+o	Enable patients to upload past medical history.
+o	Enable doctors and healthcare staff to update patient medical history.
+•	Prescription Management:
+o	Enable doctors and healthcare staff to create and modify prescriptions.
+o	Enable patients to view and download prescriptions.
+o	Enable doctors to generate a printout of the prescription for the patient.
+•	Service Management:
+o	Enable healthcare providers to manage their services list.
+o	Include service name, description, type, price, and availability.
+•	Practitioner Management:
+o	Enable healthcare providers to onboard and remove healthcare practitioners.
+•	Reporting:
+o	Enable healthcare staff to generate management reports (financial, operational, customer data).
+•	Payment Processing:
+o	Process online payments through multiple channels.
+•	AI-Driven Symptom Checker:
+o	Provide an AI-driven symptom checker for patients to analyze symptoms and suggest possible causes and the type of doctor to consult.
+•	EHR Interactions:
+o	Fetch, insert, and update patient data within the client's EHR system.
+
+
+11. Non-Functional Requirements:
+•	Security:
+o	Comply with HIPAA and GDPR regulations.
+o	Implement access controls to limit PHI access to authorized users only.
+o	Encrypt PHI at rest and in transit.
+o	Maintain audit logs of all activities related to PHI.
+o	Secure authentication processes.
+o	Role-based access control (Guest, Patient, Healthcare Staff, Doctor, System Admin).
+•	Performance:
+o	Ensure minimal clicks and assistance are needed for patients to navigate the app.
+o	Provide high user experience journeys.
+•	Scalability:
+o	Design the framework to allow faster addition of newer services and more stakeholder journeys.
+o	The application should efficiently cover 80% of the SME in the healthcare provider market of any metropolitan city.
+•	Data Privacy:
+o	Patient data will be maintained in the client facility EHR.
+o	The application will not store patient data in its multi-tenant cloud platform.
+•	Multi-tenancy:
+o	The application is hosted on a multi-tenant SaaS platform.
+o	Data of each service provider is kept secure and distinct from other providers.
+•	Compliance:
+o	All authentication processes must comply with relevant data protection laws (e.g., HIPAA, GDPR).
+•	Data Validation:
+o	Implement data validation rules to ensure data integrity and consistency.
+
+
+12. Technical Requirements:
+•	Data Model:
+o	Patient:
+	Attributes: PatientID (PK), PRN, FullName, DateOfBirth, Gender, Address, PhoneNumber, EmailAddress, EmergencyContact, MedicalHistoryID (FK)
+	Relationships: One-to-many with Appointments, One-to-one with MedicalHistory
+o	Doctor:
+	Attributes: DoctorID (PK), FullName, PhoneNumber, EmailAddress, Specialization
+	Relationships: Many-to-many with Services (through DoctorService), One-to-many with Appointments
+o	HealthcareStaff:
+	Attributes: StaffID (PK), FullName, PhoneNumber, EmailAddress
+	Relationships: One-to-many with Services, One-to-many with Appointments
+o	Appointment:
+	Attributes: AppointmentID (PK), PatientID (FK), DoctorID (FK), StaffID (FK), ServiceID (FK), AppointmentDateTime, AppointmentType, Status
+	Relationships: Many-to-one with Patient, Many-to-one with Doctor, Many-to-one with HealthcareStaff, Many-to-one with Service
+o	Service:
+	Attributes: ServiceID (PK), ServiceName, ServiceDescription, ServiceType, Price, Availability
+	Relationships: Many-to-many with Doctors (through DoctorService), One-to-many with Appointments
+o	DoctorService:
+	Attributes: DoctorID (FK), ServiceID (FK), PK (DoctorID, ServiceID)
+	Relationships: Many-to-one with Doctor, Many-to-one with Service
+o	MedicalHistory:
+	Attributes: MedicalHistoryID (PK), ChronicConditions, Surgeries, Allergies, Medications, FamilyHistory, LifestyleFactors, ImmunizationRecords
+	Relationships: One-to-one with Patient
+o	Prescription:
+	Attributes: PrescriptionID (PK), AppointmentID (FK), Medications, Dosage, FollowUpDate
+	Relationships: One-to-many with Appointment
+•	EHR Integration:
+o	Use HL7, FHIR, and RESTful APIs for interoperability between the application and the EHR system.
+o	Ensure all data exchange complies with HIPAA and GDPR regulations.
+•	API Interactions:
+o	RESTful APIs for CRUD operations on Patient, Doctor, Appointment, and Service entities.
+o	HL7 or FHIR standards for exchanging clinical data with the EHR system.
+o	Secure authentication and authorization mechanisms (e.g., OAuth 2.0) to protect APIs.
+•	Data Storage & Security:
+o	Patient medical records (EHR) will be maintained in the client facility.
+o	The application will fetch, insert, and update EHR data but will not store the data in the app's multi-tenant cloud platform.
+
+
+13. Conclusion
+This SRS outlines the requirements for a healthcare application designed to improve the reach and efficiency of SME healthcare providers. The application focuses on providing a user-friendly platform for patients to manage appointments, access medical information, and communicate with healthcare professionals. Key features include patient registration, appointment management, EHR integration, and an AI-driven symptom checker. The application is designed to be scalable, secure, and compliant with relevant healthcare regulations (HIPAA, GDPR).
+Potential future enhancements include:
+•	Advanced AI Tools: Implementing more sophisticated AI-powered diagnostic tools and personalized treatment recommendations.
+•	Multilingual Support: Adding support for multiple languages to cater to a diverse patient population.
+•	Cloud Scalability: Enhancing the cloud infrastructure to support a growing number of users and healthcare providers.
+•	Integration with Wearable Devices: Connecting with wearable health trackers to gather real-time patient data.
+•	Telemedicine Enhancements: Improving the telemedicine capabilities with advanced video conferencing and remote monitoring features.
